@@ -1,0 +1,106 @@
+//@import {"https://use.fontawesome.com/releases/v5.8.1/css/all.css"}
+$box-color: antiquewhite
+$paper-color: aliceblue
+
+*
+  margin: 0
+  padding: 0
+
+body
+  display: flex
+  flex-direction : column
+  justify-content: center
+  align-items: center
+  height: 100vh
+  background-color: slategrey
+  font-size: 16px
+  
+#quote-box
+  position: relative
+  height: 16rem
+  width: 40rem
+  background: $box-color
+  border-radius: 1rem
+  box-shadow: 0px 0.6rem 0 0.5rem tan
+
+#paper-container
+  display: block
+  position: relative
+  height: 9rem
+  margin: auto
+  
+#paper
+  //display: none
+  position: absolute
+  bottom: -10rem
+  left: 4rem
+  padding: 2rem
+  background-color: $paper-color
+  color: darkslategrey
+  font-family: courier new, monospace
+  filter: drop-shadow(0 6px 4px #0004)
+  width: 28rem
+  height: 20rem
+  margin: auto
+  //clip: rect(0vh, 34rem, 24rem, -2rem)
+  clip-path: url(#paper-clipping)
+  
+  &:hover
+    transform: translate(0, -100vh)
+    transition-duration: 1s
+  
+#slot
+  position: absolute
+  width: 33rem
+  height: 1rem
+  background-color: black
+  margin: auto
+  border-radius: 0.5rem
+  top: 8rem
+  left: 3.5rem
+  
+#slot-shadow
+  @extend #slot
+  background-color: transparent
+  height: 1rem
+  box-shadow: inset 0rem -0.8rem 1rem -1rem black
+  
+#buttons
+  display: flex
+  flex-direction: row
+  padding: 3rem 3rem 2rem 3rem
+  justify-content: space-between
+
+.button-well
+  display: flex
+  padding: 0.1rem 1px 0.1rem 1px
+  border-radius: 0.5rem 0.5rem 0 0
+  background-color: tan
+  
+.btn
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 1rem
+  border-radius: 0 0 0.4rem 0.4rem
+  background-color: $box-color
+  text-decoration: none
+  font-family: tahoma
+  font-size: 32px
+  color: sienna
+  margin: 0 1px 0rem 1px
+  height: 3.8rem
+  cursor: pointer
+  transition: 0.15s
+  
+  transform: perspective(20rem) rotateX(0deg) translate(0, 0) translateZ(0)
+  &:first-child
+    border-radius: 0.4rem 0 0.4rem 0.4rem
+  &:last-child
+    border-radius: 0 0.4rem 0.4rem 0.4rem
+  &:hover
+    transform: perspective(20rem) rotateX(-1.2deg) translate(0, 0.12rem) translateZ(-0.14rem)
+  &:active
+    transform: perspective(20rem) rotateX(-12deg) translate(0, 1.2rem) translateZ(-1.4rem)
+    box-shadow: inset 0.5rem 0rem 1.4rem -0.5rem #d2b48c88, inset -0.5rem 0rem 1.4rem -0.5rem #d2b48c88
+    transition: 0s
