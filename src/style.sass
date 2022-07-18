@@ -8,13 +8,13 @@ $paper-color: aliceblue
 
 body
   display: flex
-  flex-direction : column
+  flex-direction: column
   justify-content: center
   align-items: center
   height: 100vh
   background-color: slategrey
   font-size: 16px
-  
+
 #quote-box
   position: relative
   height: 16rem
@@ -24,11 +24,14 @@ body
   box-shadow: 0px 0.6rem 0 0.5rem tan
 
 #paper-container
-  display: block
-  position: relative
-  height: 9rem
+  // background-color: #f008
+  width: 100%
+  position: absolute
   margin: auto
-  
+  height: 100vh
+  bottom: 7rem
+  clip: rect(0, 40rem, 100vh, 0)
+
 #paper
   //display: none
   position: absolute
@@ -42,13 +45,11 @@ body
   width: 28rem
   height: 20rem
   margin: auto
-  //clip: rect(0vh, 34rem, 24rem, -2rem)
-  clip-path: url(#paper-clipping)
-  
+
   &:hover
     transform: translate(0, -100vh)
     transition-duration: 1s
-  
+
 #slot
   position: absolute
   width: 33rem
@@ -58,17 +59,22 @@ body
   border-radius: 0.5rem
   top: 8rem
   left: 3.5rem
-  
+
 #slot-shadow
   @extend #slot
   background-color: transparent
   height: 1rem
   box-shadow: inset 0rem -0.8rem 1rem -1rem black
-  
+
 #buttons
+  // align-self: flex-end
+  // width: 100%
+  position: absolute
+  bottom: 0
+  left: 3rem
+  right: 3rem
   display: flex
   flex-direction: row
-  padding: 3rem 3rem 2rem 3rem
   justify-content: space-between
 
 .button-well
@@ -76,7 +82,7 @@ body
   padding: 0.1rem 1px 0.1rem 1px
   border-radius: 0.5rem 0.5rem 0 0
   background-color: tan
-  
+
 .btn
   display: flex
   justify-content: center
@@ -92,7 +98,7 @@ body
   height: 3.8rem
   cursor: pointer
   transition: 0.15s
-  
+
   transform: perspective(20rem) rotateX(0deg) translate(0, 0) translateZ(0)
   &:first-child
     border-radius: 0.4rem 0 0.4rem 0.4rem
