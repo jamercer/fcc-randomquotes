@@ -46,9 +46,23 @@ body
   height: 20rem
   margin: auto
 
-  &:hover
+@keyframes paper_eject
+  from
+    transform: translate(0, 0)
+  to
     transform: translate(0, -100vh)
-    transition-duration: 1s
+
+.paper_ejected
+  animation: paper_eject 1s forwards
+
+@keyframes paper_feed
+  from
+    transform: translate(0, 15rem)
+  to
+    transform: translate(0, 0)
+
+.paper_feeded
+  animation: paper_feed 1s backwards
 
 #slot
   position: absolute

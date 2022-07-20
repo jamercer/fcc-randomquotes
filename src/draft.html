@@ -8,6 +8,7 @@
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="./style.css">
+  <script src="script.js"></script>
   <div id="quote-box">
     <div id="slot"></div>
     <div id="paper-container">
@@ -30,8 +31,8 @@
         <a class="btn" href="#"><i class="fab fa-tumblr-square"></i></a>
       </div>
       <div class="button-well">
-        <div class="btn"><i class="fas fa-eject"></i></div>
-        <div class="btn" id="new-quote"><i class="fas fa-comment-dots"></i></div>
+        <div class="btn" onclick="eject()"><i class="fas fa-eject"></i></div>
+        <div class="btn" onclick="newQuote()" id="new-quote"><i class="fas fa-comment-dots"></i></div>
       </div>
     </div>
   </div>
