@@ -5,6 +5,7 @@ let twitterBtn;
 let facebookBtn;
 let tumblrBtn;
 let animLock = false
+const animLockTime = 600;
 let quotesLibrary;
 
 window.onload = () => {
@@ -26,40 +27,38 @@ window.onload = () => {
     });
 }
 
-animLockTimeout = (time) => {
-  paperElement.className = "paper_feeded";
+animLockTimeout = () => {
   animLock = true
   setTimeout(() => {
     animLock = false
-  }, time);
+  }, animLockTime);
 }
 
 loadNewQuote = () => {
   let index = Math.floor((quotesLibrary.quotes.length) * Math.random())
   quoteElement.innerText = quotesLibrary.quotes[index].quote
   authorElement.innerText = quotesLibrary.quotes[index].author
-  twitterBtn.attr('href','')
-  tumblrBtn.attr('href','')
+  // twitterBtn.attr('href','')
+  // tumblrBtn.attr('href','')
+  paperElement.className = "paper_feeded";
+  animLockTimeout()
 }
 
 eject = () => {
-  if (!animLock) {
-    paperElement.className = "paper_ejected";
-  }
+  if (animLock) return;
+  paperElement.className = "paper_ejected";
+  animLockTimeout()
 }
 
 newQuote = () => {
-  if (!animLock) {
-    if (paperElement.className === "paper_ejected") {
+  if (animLock) return
+  if (paperElement.className === "paper_ejected") {
+    loadNewQuote();
+  } else {
+    eject();
+    setTimeout(() => {
       loadNewQuote();
-      animLockTimeout(1000)
-    } else {
-      paperElement.className = "paper_ejected"
-      setTimeout(() => {
-        loadNewQuote();
-      }, 1000);
-      animLockTimeout(2000)
-    }
+    }, animLockTime);
   }
 }
 
